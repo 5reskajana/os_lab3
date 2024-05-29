@@ -40,6 +40,8 @@ public class UDPServer extends Thread{
                 } else if (received_message.equals("logout")) {
                     buffer = new byte[256];
                     buffer = "logged out".getBytes();
+                } else if (isLoggedIn) {
+                    buffer = received_message.getBytes();
                 }
 
                 InetAddress inetAddress = packet.getAddress();
